@@ -1,4 +1,5 @@
 import ActionType from '../../actionType';
+
 const initialState = {
     products: [],
 };
