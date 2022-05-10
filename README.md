@@ -1,30 +1,27 @@
-# Getting Started with Create React App
+# RocketLauncher
+Rocket Launcher is a app that shows information about various types of rockets.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Pre-requisites
 
-## Available Scripts
+1. NodeJs
+2. Npm
 
-In the project directory, you can run:
+##Tech
+Rocket Launch uses a number of open source projects to work properly:
 
-### `npm start`
+1. Nodejs - Server Side language
+2. ReactJs - SPA!
+3. Redux - State Management Package
+4. Material UI - Layout of the Components
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How To Run
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. At first clone the project.
+2. Run `yarn` or `npm install` to install all the dependencies
+3. The system will run on [http://localhost:3000](http://localhost:3000). You can modify it by changing the port in `server.js` or adding an `env` variable.
+4. Once installed, run `yarn start` or `npm start`
+5. Run `npm test` to test the app.
 
-### `npm test`
+## Live App
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Link: [https://verdant-pasca-3782d1.netlify.app/]
