@@ -1,30 +1,28 @@
 import { useSelector } from "react-redux";
 
 const ControlerMethods = () => {
-  const { products } = useSelector(store => store.products);
+  const { products } = useSelector((store) => store.products);
   const productList = products;
   let i = 0;
+  let product = [];
 
   const getProductByUpcomingStatus = (statusValue) => {
-    let product = [];
     statusValue = statusValue.toLowerCase();
     productList.forEach((value) => {
-      if(value.upcoming.toString() === statusValue)
-      {
-          product[i]=value;
-          i++;
+      if (value.upcoming.toString() === statusValue) {
+        product[i] = value;
+        i++;
       }
-  });
+    });
     return product;
   };
 
   const getProductByLaunchStatus = (statusValue) => {
-    let product=[];
     switch(statusValue){
       case "True":
         productList.forEach((value)=>{
-          if(value.launch_success === true){
-              product[i]=value;
+          if (value.launch_success === true) {
+              product[i] = value;
               i++;
           }
         });
@@ -38,20 +36,19 @@ const ControlerMethods = () => {
         });
         return product;
       default:
-        return
-        }
+        return ;
+    }
   };
 
   const getProductByLaunchDate = (dateValue) => {
-    let ts = Math.round(new Date().getTime() / 1000);
+    const ts = Math.round(new Date().getTime() / 1000);
     console.log(ts, "===time");
-    let lastWeakStart = ts - 604800;
-    let lastWeakEnd = ts - 604800 * 2;
-    let lastMonthStart = ts - 2629743;
-    let lastMonthEnd = ts - 2629743 * 2;
-    let lastYearStart = ts - 31556926 * 4;
-    let lastYearEnd = ts - 31556926 * 2;
-    let product = [];
+    const lastWeakStart = ts - 604800;
+    const lastWeakEnd = ts - 604800 * 2;
+    const lastMonthStart = ts - 2629743;
+    const lastMonthEnd = ts - 2629743 * 2;
+    const lastYearStart = ts - 31556926 * 4;
+    const lastYearEnd = ts - 31556926 * 2;
     switch (dateValue) {
       case "Last Weak":
         productList.forEach((value) => {
@@ -91,7 +88,6 @@ const ControlerMethods = () => {
     }
   };
   const searchProductByRocketName = (searchValue) => {
-    let product = [];
     let rocketName = searchValue.toUpperCase();
     productList.forEach((value) => {
       if (value.rocket.rocket_name.toUpperCase().indexOf(rocketName) > -1) {
