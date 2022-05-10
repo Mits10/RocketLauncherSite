@@ -42,7 +42,6 @@ const ControlerMethods = () => {
 
   const getProductByLaunchDate = (dateValue) => {
     const ts = Math.round(new Date().getTime() / 1000);
-    console.log(ts, "===time");
     const lastWeakStart = ts - 604800;
     const lastWeakEnd = ts - 604800 * 2;
     const lastMonthStart = ts - 2629743;

@@ -11,7 +11,16 @@ const Product = ({ product }) => {
   return (
     <Grid item container md={4}>
       <Grid item xs={12}>
-        <Card sx={{ minWidth: 275 }}>
+        <Card
+          sx={{
+            minWidth: 275,
+            bgcolor: "info.main",
+            color: "white",
+            height: 300,
+            borderRadius: 4,
+            justifyContent: "center",
+          }}
+        >
           <CardHeader
             title={product?.rocket?.rocket_name}
             subheader={product?.rocket?.rocket_type}
@@ -24,7 +33,7 @@ const Product = ({ product }) => {
             </Typography>
             <Typography>Upcoming : {product?.upcoming?.toString()}</Typography>
             <Typography sx={{ fontSize: 14 }} color="text.secondary">
-              Details: {product?.details?.substr(0, 50)}.....
+              Details: {product?.details?.substr(0, 3)}.....
             </Typography>
           </CardContent>
         </Card>

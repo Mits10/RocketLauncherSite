@@ -51,38 +51,34 @@ const HomePage = () => {
     }
   };
 
-  return (
+  return productList.length === 0 ? (
+    <h2>Loading......</h2>
+  ) : (
     <>
-      {productList === null ? (
-        <h2>Loading......</h2>
-      ) : (
-        <>
-          <Header setProduct={setSortedProducts} />
-          <Grid container justifyContent="center" spacing={2}>
-            <Grid item container md={3}>
-              <Grid item xs={12}>
-                <UpcomingFilter onSort={onSort} />
-                <LaunchStatusFilter onSort={onSort} />
-                <LaunchDateFilter onSort={onSort} />
-              </Grid>
-            </Grid>
-            <Grid item container md={9}>
-              <Grid item xs={12}>
-                <Grid container justifyContent="center" spacing={2}>
-                  {sortedProducts === null
-                    ? productList &&
-                      productList.map((product) => {
-                        return <Product product={product} />;
-                      })
-                    : sortedProducts?.map((product, index) => {
-                        return <Product key={index} product={product} />;
-                      })}
-                </Grid>
-              </Grid>
+      <Header setProduct={setSortedProducts} />
+      <Grid container justifyContent="center" spacing={2}>
+        <Grid item container md={3}>
+          <Grid item xs={12} sx={{ m: 2 }}>
+            <UpcomingFilter onSort={onSort} />
+            <LaunchStatusFilter onSort={onSort} />
+            <LaunchDateFilter onSort={onSort} />
+          </Grid>
+        </Grid>
+        <Grid item container md={9}>
+          <Grid item xs={12}>
+            <Grid container justifyContent="center" spacing={2}>
+              {sortedProducts === null
+                ? productList &&
+                  productList.map((product) => {
+                    return <Product product={product} />;
+                  })
+                : sortedProducts?.map((product) => {
+                    return <Product product={product} />;
+                  })}
             </Grid>
           </Grid>
-        </>
-      )}
+        </Grid>
+      </Grid>
     </>
   );
 };

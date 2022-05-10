@@ -15,10 +15,8 @@ const UpcomingFilter = ({ onSort }) => {
         label="upcoming"
         onChange={(e) => onSort("upcomingStatus", e.target.value)}
       >
-        {upComingOptions.map((option, index) => (
-          <MenuItem key={index} value={option}>
-            {option}
-          </MenuItem>
+        {upComingOptions.map((option) => (
+          <MenuItem value={option}>{option}</MenuItem>
         ))}
       </Select>
     </FormControl>

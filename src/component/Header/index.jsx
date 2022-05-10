@@ -15,7 +15,7 @@ const Header = ({ setProduct }) => {
   return (
     <Grid container justifyContent="center" spacing={2}>
       <Grid item container md={6}>
-        <Grid item xs={12}>
+        <Grid item xs={12} sx={{ m: 2 }}>
           <h2>Rocket Launcher</h2>
         </Grid>
       </Grid>
