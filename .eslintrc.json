@@ -19,6 +19,7 @@
         "react"
     ],
     "rules": {
+        "default-param-last": 0,
         "prettier/prettier": [
             "error",
             {

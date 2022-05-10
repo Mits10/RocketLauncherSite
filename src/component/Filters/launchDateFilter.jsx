@@ -13,9 +13,9 @@ const LaunchDateFilter = ({ onSort }) => {
         id="demo-simple-select"
         value={launchDateOption}
         label="launchDate"
-        onChange={e => onSort("launchDate", e.target.value)}
+        onChange={(e) => onSort("launchDate", e.target.value)}
       >
-        {launchDateOptions.map(option => (
+        {launchDateOptions.map((option) => (
           <MenuItem value={option}>{option}</MenuItem>
         ))}
       </Select>

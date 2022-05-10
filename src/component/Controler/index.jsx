@@ -4,39 +4,39 @@ const ControlerMethods = () => {
   const { products } = useSelector((store) => store.products);
   const productList = products;
   let i = 0;
-  let product = [];
+  const product = [];
 
   const getProductByUpcomingStatus = (statusValue) => {
-    statusValue = statusValue.toLowerCase();
+    const status = statusValue.toLowerCase();
     productList.forEach((value) => {
-      if (value.upcoming.toString() === statusValue) {
+      if (value.upcoming.toString() === status) {
         product[i] = value;
-        i++;
+        i += 1;
       }
     });
     return product;
   };
 
   const getProductByLaunchStatus = (statusValue) => {
-    switch(statusValue){
+    switch (statusValue) {
       case "True":
-        productList.forEach((value)=>{
+        productList.forEach((value) => {
           if (value.launch_success === true) {
-              product[i] = value;
-              i++;
+            product[i] = value;
+            i += 1;
           }
         });
         return product;
-      case "False": 
-        productList.forEach((value)=>{
-          if(value.launch_success === false){
-              product[i]=value;
-              i++;
+      case "False":
+        productList.forEach((value) => {
+          if (value.launch_success === false) {
+            product[i] = value;
+            i += 1;
           }
         });
         return product;
       default:
-        return ;
+        return product;
     }
   };
 
@@ -57,7 +57,7 @@ const ControlerMethods = () => {
             value.launch_date_unix >= lastWeakStart
           ) {
             product[i] = value;
-            i++;
+            i += 1;
           }
         });
         return product;
@@ -68,7 +68,7 @@ const ControlerMethods = () => {
             value.launch_date_unix >= lastMonthStart
           ) {
             product[i] = value;
-            i++;
+            i += 1;
           }
         });
         return product;
@@ -79,20 +79,20 @@ const ControlerMethods = () => {
             value.launch_date_unix >= lastYearStart
           ) {
             product[i] = value;
-            i++;
+            i += 1;
           }
         });
         return product;
       default:
-        return;
+        return product;
     }
   };
   const searchProductByRocketName = (searchValue) => {
-    let rocketName = searchValue.toUpperCase();
+    const rocketName = searchValue.toUpperCase();
     productList.forEach((value) => {
       if (value.rocket.rocket_name.toUpperCase().indexOf(rocketName) > -1) {
         product[i] = value;
-        i++;
+        i += 1;
       }
     });
     return product;
@@ -101,7 +101,7 @@ const ControlerMethods = () => {
     getProductByUpcomingStatus,
     getProductByLaunchStatus,
     getProductByLaunchDate,
-    searchProductByRocketName
+    searchProductByRocketName,
   };
 };
 export default ControlerMethods;
